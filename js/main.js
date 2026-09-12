@@ -53,6 +53,12 @@ reveals.forEach((node, index) => {
   io.observe(node);
 });
 
+if (location.hash) {
+  reveals.forEach((node) => node.classList.add("in"));
+  const target = document.getElementById(location.hash.slice(1));
+  target?.scrollIntoView();
+}
+
 window.setTimeout(() => {
   reveals.forEach((node) => node.classList.add("in"));
 }, 1800);

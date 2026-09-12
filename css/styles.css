@@ -257,10 +257,10 @@ main,
 .nav-toggle {
   display: none;
   margin-left: auto;
-  width: 44px;
-  height: 40px;
+  width: 46px;
+  height: 42px;
   border: 2.5px solid var(--ink);
-  background: #fff;
+  background: var(--yellow);
   border-radius: 10px;
   padding: 8px;
   flex-direction: column;
@@ -269,6 +269,7 @@ main,
 
 .nav-toggle span {
   display: block;
+  width: 100%;
   height: 3px;
   background: var(--ink);
 }
@@ -790,18 +791,20 @@ main,
   font-size: 16px;
 }
 
-.reveal {
+html.js .reveal:not(.in) {
   opacity: 0;
   transform: translateY(24px) rotate(-1deg);
-  animation: reveal 0.8s ease forwards;
-  animation-play-state: paused;
 }
 
-.reveal.in {
-  animation-play-state: running;
+html.js .reveal.in {
+  animation: reveal 0.8s ease forwards;
 }
 
 @keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotate(-1deg);
+  }
   to {
     opacity: 1;
     transform: none;
@@ -860,7 +863,7 @@ main,
   }
 
   .hero-title {
-    font-size: clamp(36px, 14vw, 54px);
+    font-size: clamp(28px, 8.4vw, 40px);
   }
 
   .hero-tag {
@@ -893,5 +896,11 @@ main,
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  html.js .reveal:not(.in),
+  html.js .reveal.in {
+    opacity: 1;
+    transform: none;
   }
 }

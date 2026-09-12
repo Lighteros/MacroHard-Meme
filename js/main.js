@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 const CA = "SOON";
 
 const caButton = document.getElementById("copy-ca");
@@ -50,6 +52,10 @@ reveals.forEach((node, index) => {
   node.style.animationDelay = `${(index % 4) * 0.08}s`;
   io.observe(node);
 });
+
+window.setTimeout(() => {
+  reveals.forEach((node) => node.classList.add("in"));
+}, 1800);
 
 const canvas = document.getElementById("ink-trail");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

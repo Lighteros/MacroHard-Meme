@@ -350,6 +350,7 @@ main,
   border: 3px solid var(--ink);
   border-radius: 50%;
   box-shadow: var(--shadow);
+  overflow: hidden;
   animation: floaty 5s ease-in-out infinite;
 }
 
@@ -359,16 +360,7 @@ main,
 }
 
 .bead {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  margin: -8px;
-  border-radius: 50%;
-  border: 2px solid var(--ink);
-  animation: orbit 16s linear infinite;
-  transform-origin: 0 0;
+  display: none;
 }
 
 .bead-1 { background: var(--red); --angle: 0deg; }
@@ -843,7 +835,7 @@ html.js .reveal.in {
   }
 
   .nav-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .trait-row,

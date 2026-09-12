@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroHard | $MacroHard on Solana</title>
+  <meta name="description" content="MacroHard is a joint xAI-Tesla project, also known as Digital Optimus. The future is hard. Like...MacroHard." />
+  <meta name="theme-color" content="#f6f1e6" />
+  <link rel="icon" type="image/webp" href="assets/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="orb orb-red" aria-hidden="true"></div>
+  <div class="orb orb-green" aria-hidden="true"></div>
+  <div class="orb orb-yellow" aria-hidden="true"></div>
+  <div class="orb orb-blue" aria-hidden="true"></div>
+  <canvas id="ink-trail" aria-hidden="true"></canvas>
+
+  <svg class="svg-defs" aria-hidden="true">
+    <filter id="sketch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="soft-sketch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" />
+    </filter>
+  </svg>
+
+  <header class="nav">
+    <a class="nav-brand" href="#hero">
+      <span class="nav-logo-wrap">
+        <img src="assets/logo.webp" alt="MacroHard logo" />
+      </span>
+      <span class="nav-word">MacroHard</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="site-nav">
+      <a href="#about">About</a>
+      <a href="#howtobuy">How to Buy</a>
+      <a href="#chart">Chart</a>
+      <a href="#joinus">Join Us</a>
+    </nav>
+    <div class="nav-socials">
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="assets/icons/x.svg" alt="" />
+      </a>
+      <a href="https://dexscreener.com/solana/" target="_blank" rel="noopener noreferrer" aria-label="DexScreener">
+        <img src="assets/icons/dexscreener.svg" alt="" class="icon-dex" />
+      </a>
+      <a href="https://swap.pump.fun/" target="_blank" rel="noopener noreferrer" aria-label="PumpSwap">
+        <img src="assets/icons/pumpswap.svg" alt="" />
+      </a>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>MacroHard &gt;&gt; Microsoft</span>
+      <span>The future is hard</span>
+      <span>Digital Optimus</span>
+      <span>$MacroHard on Solana</span>
+      <span>MacroHard &gt;&gt; Microsoft</span>
+      <span>The future is hard</span>
+      <span>Digital Optimus</span>
+      <span>$MacroHard on Solana</span>
+    </div>
+  </div>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-stage">
+        <div class="ring-field">
+          <div class="spin-ring spin-ring-lg"></div>
+          <div class="spin-ring spin-ring-md"></div>
+          <div class="bead bead-1"></div>
+          <div class="bead bead-2"></div>
+          <div class="bead bead-3"></div>
+          <div class="bead bead-4"></div>
+          <div class="hero-logo-wrap">
+            <img class="hero-logo" src="assets/logo.webp" alt="MacroHard mascot" />
+          </div>
+        </div>
+        <p class="hero-kicker">Solana memecoin</p>
+        <h1 class="hero-title">
+          <span>M</span><span>a</span><span>c</span><span>r</span><span>o</span><span>H</span><span>a</span><span>r</span><span>d</span>
+        </h1>
+        <p class="hero-ticker">$MacroHard</p>
+        <p class="hero-tag">The future is hard. Like...MacroHard.</p>
+        <button class="ca-chip" type="button" id="copy-ca" aria-label="Copy contract address">
+          <span class="ca-label">CA</span>
+          <code id="ca-value">SOON</code>
+          <span class="ca-hint" id="ca-hint">copy</span>
+        </button>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="https://swap.pump.fun/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/pumpswap.svg" alt="" />
+            Buy on PumpSwap
+          </a>
+          <a class="btn btn-blue" href="#chart">
+            <img src="assets/icons/dexscreener.svg" alt="" class="icon-dex" />
+            Open Chart
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,40 C1260,70 1380,20 1440,40 L1440,80 L0,80 Z" />
+    </svg>
+
+    <section id="about" class="section about">
+      <div class="section-head reveal">
+        <p class="eyebrow">System 2 notes</p>
+        <h2>About MacroHard</h2>
+        <p class="section-lead">A playful inversion of Microsoft. Built to feel like an entire software company, sketched in one sitting.</p>
+      </div>
+      <div class="about-grid">
+        <article class="sketch-card about-story reveal">
+          <h3>Digital Optimus</h3>
+          <p>
+            Macrohard is a joint xAI-Tesla project, also known as Digital Optimus. Grok acts as the System 2 navigator,
+            directing a Tesla computer-use agent (System 1) that watches live screen video and performs keyboard and mouse
+            actions in real time.
+          </p>
+          <p>
+            Built to emulate the work of entire software companies, it runs on Tesla AI4 chips with selective xAI Nvidia
+            compute. The name is a playful inversion of Microsoft.
+          </p>
+        </article>
+        <blockquote class="quote-stamp reveal">
+          <p class="quote-mark">&gt;&gt;</p>
+          <p class="quote-text">MacroHard &gt;&gt; Microsoft</p>
+          <footer>- Elon Musk</footer>
+        </blockquote>
+      </div>
+      <div class="trait-row">
+        <article class="trait reveal">
+          <span class="trait-dot red"></span>
+          <h3>Grok / System 2</h3>
+          <p>The navigator. Plans the work, reads the room, and points the agent at the next hard problem.</p>
+        </article>
+        <article class="trait reveal">
+          <span class="trait-dot green"></span>
+          <h3>Tesla agent / System 1</h3>
+          <p>Watches live screen video and drives the keys and mouse like a tired intern who never sleeps.</p>
+        </article>
+        <article class="trait reveal">
+          <span class="trait-dot yellow"></span>
+          <h3>AI4 + xAI compute</h3>
+          <p>Tesla AI4 chips on the floor, Nvidia from xAI when the job needs extra heat.</p>
+        </article>
+        <article class="trait reveal">
+          <span class="trait-dot blue"></span>
+          <h3>On Solana</h3>
+          <p>$MacroHard lives on Solana. Fast, cheap, and slightly unhinged. The way a meme OS should ship.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="howtobuy" class="section howto">
+      <div class="section-head reveal">
+        <p class="eyebrow">Four messy steps</p>
+        <h2>How to Buy</h2>
+        <p class="section-lead">No ceremony. Get a wallet, get SOL, hit PumpSwap, hold the hard one.</p>
+      </div>
+      <ol class="steps">
+        <li class="step sketch-card reveal" data-tone="red">
+          <span class="step-num">1</span>
+          <div class="step-icon">
+            <img src="assets/icons/phantom.svg" alt="Phantom wallet" />
+          </div>
+          <h3>Get Phantom</h3>
+          <p>Install Phantom and make a Solana wallet. Write the seed down like an adult. Then forget you are an adult.</p>
+          <a href="https://phantom.com/" target="_blank" rel="noopener noreferrer">phantom.com</a>
+        </li>
+        <li class="step sketch-card reveal" data-tone="green">
+          <span class="step-num">2</span>
+          <div class="step-icon">
+            <img src="assets/icons/solana.svg" alt="Solana" />
+          </div>
+          <h3>Load SOL</h3>
+          <p>Bridge or buy SOL and send it to Phantom. Gas is cheap. Excuses are not.</p>
+        </li>
+        <li class="step sketch-card reveal" data-tone="yellow">
+          <span class="step-num">3</span>
+          <div class="step-icon">
+            <img src="assets/icons/pumpswap.svg" alt="PumpSwap" />
+          </div>
+          <h3>Open PumpSwap</h3>
+          <p>Go to PumpSwap, paste the contract when it drops, and point the trade at $MacroHard.</p>
+          <a href="https://swap.pump.fun/" target="_blank" rel="noopener noreferrer">swap.pump.fun</a>
+        </li>
+        <li class="step sketch-card reveal" data-tone="blue">
+          <span class="step-num">4</span>
+          <div class="step-icon">
+            <img src="assets/icons/dexscreener.svg" alt="DexScreener" class="icon-dex" />
+          </div>
+          <h3>Swap and watch</h3>
+          <p>Confirm the swap. Then open the DexScreener chart and stare like it owes you rent.</p>
+          <a href="https://dexscreener.com/solana/" target="_blank" rel="noopener noreferrer">dexscreener.com/solana</a>
+        </li>
+      </ol>
+    </section>
+
+    <section id="chart" class="section chart">
+      <div class="section-head reveal">
+        <p class="eyebrow">Live board</p>
+        <h2>Chart</h2>
+        <p class="section-lead">DexScreener embed on Solana. Nothing else. The candles do the talking.</p>
+      </div>
+      <div class="chart-frame sketch-card reveal">
+        <iframe
+          title="DexScreener Solana chart"
+          src="https://dexscreener.com/solana/soon?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=light&theme=light&chartStyle=0&chartType=usd&interval=15"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="joinus" class="section join">
+      <div class="section-head reveal">
+        <p class="eyebrow">The hard club</p>
+        <h2>Join Us</h2>
+        <p class="section-lead">The banner lives here and only here. Come sit in the ring.</p>
+      </div>
+      <figure class="banner-frame reveal">
+        <img src="assets/banner.webp" alt="MacroHard banner" />
+      </figure>
+      <div class="join-links reveal">
+        <a class="join-btn" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/x.svg" alt="" />
+          <span>X</span>
+        </a>
+        <a class="join-btn" href="https://dexscreener.com/solana/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/dexscreener.svg" alt="" class="icon-dex" />
+          <span>DexScreener</span>
+        </a>
+        <a class="join-btn" href="https://swap.pump.fun/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/pumpswap.svg" alt="" />
+          <span>PumpSwap</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo.webp" alt="" />
+    <p>MacroHard / $MacroHard / Solana</p>
+    <p class="fine">The future is hard. This site is a meme. Not financial advice. Do your own research.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

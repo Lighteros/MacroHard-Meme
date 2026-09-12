@@ -38,6 +38,7 @@ body {
   font-family: var(--hand);
   font-size: 20px;
   line-height: 1.45;
+  word-spacing: 0.12em;
   overflow-x: hidden;
 }
 
@@ -408,9 +409,10 @@ main,
 .hero-title {
   margin: 0;
   font-family: var(--marker);
-  font-size: clamp(52px, 10vw, 108px);
+  font-size: clamp(40px, 11vw, 96px);
   line-height: 0.92;
   letter-spacing: 1px;
+  padding: 0 12px;
 }
 
 .hero-title span {
@@ -551,7 +553,6 @@ main,
   border: 3px solid var(--ink);
   border-radius: 22px;
   box-shadow: 6px 6px 0 rgba(28, 23, 20, 0.12);
-  filter: url(#sketch);
 }
 
 .about-grid {
@@ -816,6 +817,10 @@ main,
 }
 
 @media (max-width: 720px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
   .nav-links,
   .nav-socials {
     display: none;
@@ -849,8 +854,36 @@ main,
     height: 460px;
   }
 
+  .hero {
+    padding: 28px 16px 56px;
+    min-height: auto;
+  }
+
   .hero-title {
-    font-size: 58px;
+    font-size: clamp(36px, 14vw, 54px);
+  }
+
+  .hero-tag {
+    font-size: 22px;
+    padding: 0 8px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 8px;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+
+  .bead {
+    display: none;
+  }
+
+  .banner-frame {
+    border-radius: 16px;
   }
 }
 
